@@ -17,10 +17,10 @@ interface SetStatePropForDict<T> {
   (prop: Array<string | number>, value: SetState<any>): void;
 }
 
-export default function <T extends Array<any>>(
+export default function<T extends Array<any>>(
   setState: SetState<T>
 ): SetStatePropForArray;
 
-export default function <T extends Dict<any>>(
+export default function<T extends Dict<any>>(
   setState: SetState<T>
 ): SetStatePropForDict<T>;

@@ -1,5 +1,5 @@
 import React from "react";
-import useSetProp from "../useSetProp";
+import usePropChange from "../usePropChange";
 
 import { InputField } from "./InputField";
 import { CheckboxField } from "./CheckboxField";
@@ -13,14 +13,14 @@ interface PersonData {
 
 type Props<T extends PersonData> = {
   personData: T;
-  onChange: (personData: T) => void;
+  onPersonDataChange: (personData: T) => void;
 };
 
 export const PersonFields = <ProvidedData extends PersonData>({
   personData,
-  onChange,
+  onPersonDataChange
 }: Props<ProvidedData>) => {
-  const handleChangeProp = useSetProp(onChange);
+  const handleChangeProp = usePropChange(onPersonDataChange);
 
   return (
     <>

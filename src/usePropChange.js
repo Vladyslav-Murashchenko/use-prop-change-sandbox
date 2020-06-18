@@ -1,26 +1,26 @@
 import { over, lensProp, lensIndex, lensPath, type } from "ramda";
 
-const isFunc = (val) => typeof val === "function";
+const isFunc = val => typeof val === "function";
 
 const lensByPropType = {
   String: lensProp,
   Number: lensIndex,
-  Array: lensPath,
+  Array: lensPath
 };
 
-const useSetProp = (setState) => {
-  return function (prop, maybeValue) {
+const usePropChange = setState => {
+  return function(prop, maybeValue) {
     const lens = lensByPropType[type(prop)];
 
     if (!lens) {
       throw new TypeError(
-        "Incorrect first argument of SetProp function, returned but useSetProp hook. First argument can be only number, string or array."
+        "Incorrect first argument of handleProp function, returned from usePropChange hook. First argument can be only number, string or array."
       );
     }
 
     const overProp = over(lens(prop));
 
-    const setValue = (value) => {
+    const setValue = value => {
       setState(overProp(isFunc(value) ? value : () => value));
     };
 
@@ -32,4 +32,4 @@ const useSetProp = (setState) => {
   };
 };
 
-export default useSetProp;
+export default usePropChange;

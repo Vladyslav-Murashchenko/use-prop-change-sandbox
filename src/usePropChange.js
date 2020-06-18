@@ -14,7 +14,7 @@ const usePropChange = setState => {
 
     if (!lens) {
       throw new TypeError(
-        "Incorrect first argument of handleProp function, returned but usePropChange hook. First argument can be only number, string or array."
+        "Incorrect first argument of handleProp function, returned from usePropChange hook. First argument can be only number, string or array."
       );
     }
 

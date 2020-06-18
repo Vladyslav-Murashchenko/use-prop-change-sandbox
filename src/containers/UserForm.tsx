@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import usePropChange from "use-prop-change";
 
 import { PersonFields } from "../components/PersonFields";
 
 import { removeIndex, append, createIdGenerator } from "../utils";
-import usePropChange from "./../usePropChange";
 
 interface UserData {
   name: string;
@@ -30,7 +30,7 @@ const defaultUserData: UserData = {
   age: "0",
   money: "0",
   isHappy: true,
-  friends: []
+  friends: [],
 };
 
 const generateFriendId = createIdGenerator();
@@ -40,7 +40,7 @@ const createFriendData = (): FriendData => ({
   name: "",
   age: "0",
   money: "0",
-  isHappy: true
+  isHappy: true,
 });
 
 export const UserForm: React.FC<Props> = ({ onSubmit }) => {
@@ -58,7 +58,7 @@ export const UserForm: React.FC<Props> = ({ onSubmit }) => {
 
   return (
     <form
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         onSubmit(userData);
       }}

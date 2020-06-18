@@ -1,5 +1,5 @@
 import React from "react";
-import usePropChange from "../usePropChange";
+import usePropChange from "use-prop-change";
 
 import { InputField } from "./InputField";
 import { CheckboxField } from "./CheckboxField";
@@ -18,7 +18,7 @@ type Props<T extends PersonData> = {
 
 export const PersonFields = <ProvidedData extends PersonData>({
   personData,
-  onPersonDataChange
+  onPersonDataChange,
 }: Props<ProvidedData>) => {
   const handleChangeProp = usePropChange(onPersonDataChange);
 

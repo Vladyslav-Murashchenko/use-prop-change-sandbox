@@ -1,5 +1,5 @@
 {
-  "name": "use-set-prop-sandbox",
+  "name": "use-prop-change-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,5 +38,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
